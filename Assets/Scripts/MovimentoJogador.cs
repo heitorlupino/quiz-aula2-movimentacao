@@ -7,7 +7,7 @@ using UnityEngine;
 public class MovimentoJogador : MonoBehaviour
 {
     public float velocidade = 6f;
-    public float forcaPulo = 12f;
+    public float forcaPulo = 14f;
 
     private Rigidbody2D rb;
     private BoxCollider2D col;

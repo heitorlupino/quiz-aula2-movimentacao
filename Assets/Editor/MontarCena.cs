@@ -43,9 +43,9 @@ public static class MontarCena
         Bloco("Chao (grama)", grama, new Vector2(0f, -1f), new Vector2(30f, 1f), 0, true);
 
         // plataformas para testar o pulo
-        Bloco("Plataforma 1", plataforma, new Vector2(-5f, 1.5f), new Vector2(3f, 1f), 0, true);
-        Bloco("Plataforma 2", plataforma, new Vector2(0f, 3.5f), new Vector2(3f, 1f), 0, true);
-        Bloco("Plataforma 3", plataforma, new Vector2(5f, 1.5f), new Vector2(3f, 1f), 0, true);
+        Bloco("Plataforma 1", plataforma, new Vector2(-5f, 1f), new Vector2(3f, 1f), 0, true);
+        Bloco("Plataforma 2", plataforma, new Vector2(0f, 2.5f), new Vector2(3f, 1f), 0, true);
+        Bloco("Plataforma 3", plataforma, new Vector2(5f, 1f), new Vector2(3f, 1f), 0, true);
 
         // paredes invisiveis nas pontas para o personagem nao cair
         Parede("Parede Esquerda", -15.5f);
@@ -64,7 +64,9 @@ public static class MontarCena
         var col = player.AddComponent<BoxCollider2D>();
         col.size = new Vector2(0.8f, 1f);
         col.sharedMaterial = SemAtrito();
-        player.AddComponent<MovimentoJogador>();
+        var mov = player.AddComponent<MovimentoJogador>();
+        mov.velocidade = 6f;
+        mov.forcaPulo = 14f;
 
         System.IO.Directory.CreateDirectory("Assets/Scenes");
         EditorSceneManager.SaveScene(cena, CaminhoCena);
